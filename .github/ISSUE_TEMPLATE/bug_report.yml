@@ -1,0 +1,164 @@
+name: Bug Report
+description: Report a bug or unexpected behavior in Ralph Loop for Antigravity
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! Please fill out the form below to help us understand and reproduce the issue.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Describe the bug...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior.
+      placeholder: |
+        1. Open VS Code with a workspace
+        2. Configure task file to '...'
+        3. Start Ralph Loop
+        4. See error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen.
+      placeholder: Describe what should have happened...
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened.
+      placeholder: Describe what actually happened...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected Component
+      description: Which part of Ralph Loop is affected?
+      options:
+        - Loop execution
+        - Antigravity connection/API
+        - Sidebar UI
+        - Configuration
+        - Progress tracking
+        - Backpressure (test/lint/build)
+        - Notifications
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      description: What operating system are you using?
+      placeholder: "e.g., macOS 14.0, Windows 11, Ubuntu 22.04"
+    validations:
+      required: true
+
+  - type: input
+    id: vscode-version
+    attributes:
+      label: VS Code Version
+      description: What version of VS Code are you using?
+      placeholder: "e.g., 1.85.0"
+    validations:
+      required: true
+
+  - type: input
+    id: extension-version
+    attributes:
+      label: Ralph Loop Extension Version
+      description: What version of the extension are you using?
+      placeholder: "e.g., 0.1.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Mode
+      description: Which mode were you using?
+      options:
+        - Fast
+        - Planning
+        - N/A
+    validations:
+      required: false
+
+  - type: dropdown
+    id: model
+    attributes:
+      label: Model
+      description: Which AI model were you using?
+      options:
+        - Gemini 3 Flash
+        - Gemini 3 Pro (Low)
+        - Gemini 3 Pro (High)
+        - Claude Sonnet 4.5
+        - Claude Sonnet 4.5 (Thinking)
+        - Claude Opus 4.5 (Thinking)
+        - GPT-OSS-120B (Medium)
+        - Other/Unknown
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs from Ralph Loop Output Channel
+      description: |
+        Copy logs from the "Ralph Loop" output channel (View > Output > Ralph Loop).
+        This will be automatically formatted as code.
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: config
+    attributes:
+      label: Configuration
+      description: |
+        Relevant settings from your VS Code settings.json (ralphLoop.* settings).
+        Remove any sensitive tokens before sharing.
+      render: json
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your problem.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues to ensure this bug hasn't been reported before
+          required: true
+        - label: I have Antigravity running with Secure Mode disabled
+          required: true
+        - label: I have provided logs from the Ralph Loop output channel
+          required: false

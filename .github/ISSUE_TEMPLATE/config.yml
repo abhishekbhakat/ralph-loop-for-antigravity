@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Extension Repository
+    url: https://github.com/abhishekbhakat/ralph-loop-for-antigravity
+    about: Check the main repository for documentation and source code
+  - name: Open VSX Registry
+    url: https://open-vsx.org/extension/abhishekbhakat/ralph-loop-for-antigravity
+    about: Install the extension from Open VSX (for VS Code forks like VSCodium)
