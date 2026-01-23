@@ -29,3 +29,17 @@ You can change the storage location for the Agent Manager's data through startup
 | **Global Rules** | Markdown File | Edit `~/.gemini/GEMINI.md` directly  [codelabs.developers.google](https://codelabs.developers.google.com/getting-started-google-antigravity) |
 
 If you are using **Remote SSH**, Antigravity stores the agent manager's state and conversation history on the *remote host* (usually in `~/.config/antigravity` or `~/.gemini/antigravity`), which is why histories may not sync automatically across different client machines. [discuss.ai.google](https://discuss.ai.google.dev/t/bug-antigravity-agent-manager-conversation-history-exists-on-remote-host-but-is-not-listed-or-creatable-after-latest-update-remote-ssh-mac-ubuntu/112857)
+
+## Agent Manager vs Cascade Storage (Ralph Users)
+
+**Important:** Agent Manager and Cascade use different storage mechanisms:
+
+- **Agent Manager:** Stores conversation data in a **SQLite database**
+- **Cascade (used by Ralph):** Stores chat sessions in **local files**
+
+When you open the Agent Manager application, chat data may be copied over or merged between these two storage systems. This can cause:
+- Duplicate or mixed-up conversations
+- Unexpected state changes in your Cascade sessions
+- Confusion about which chats belong to which context
+
+**Recommendation:** When using Ralph, avoid opening the Agent Manager application to prevent potential data conflicts or unexpected behavior with your Cascade sessions.
