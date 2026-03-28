@@ -24,6 +24,39 @@ The solution: **externalize memory to files** and run AI agents in **iterative l
 
 Each iteration spawns a fresh Cascade session, ensuring the agent always has full context by reading from disk rather than relying on conversation memory.
 
+## Model Fallbacks
+
+Ralph Loop supports a rate-limit fallback chain for model selection.
+
+- Your **primary model** runs first.
+- If that request hits a **rate limit or quota-style error**, Ralph can retry with a configured fallback.
+- Fallbacks are organized into practical model groups:
+  - **Gemini Flash**
+  - **Anthropic/OpenAI**
+  - **Gemini Pro**
+
+As of March 28, 2026, the installed Antigravity app on the development machine returns these models:
+
+- `Gemini 3.1 Pro (High)`
+- `Gemini 3.1 Pro (Low)`
+- `Gemini 3 Flash`
+- `Claude Sonnet 4.6 (Thinking)`
+- `Claude Opus 4.6 (Thinking)`
+- `GPT-OSS 120B (Medium)`
+
+Each fallback step lets you choose:
+
+1. The **group**
+2. The **specific model** inside that group
+
+Example:
+
+```
+Primary: Gemini 3 Flash
+Fallback 1: Anthropic/OpenAI -> Claude Opus 4.6 (Thinking)
+Fallback 2: Gemini Pro -> Gemini 3.1 Pro (High)
+```
+
 ## Reporting Issues
 
 Before opening an issue:
